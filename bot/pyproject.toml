@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-guilded-py = "1.12.1"
+guilded-py = "1.13.2"
 websockets = "^12.0"
 pydantic = "^2.5.3"
 xkcd = "^2.4.2"

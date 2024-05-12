@@ -3,6 +3,7 @@ from bot.utils.db import db as surreal
 
 import guilded
 
+from bot.utils.photobox import PhotoBox
 from surrealdb.ws import Surreal
 
 class UserReplyPolicy(Enum):
@@ -12,15 +13,18 @@ class UserReplyPolicy(Enum):
 
 async def user_initializer(db: Surreal, user: guilded.User):
     return await db.create(
-        f"user:{user.id}", {"name": user.name, "avatar": user.display_avatar.url}
+        f"user:{user.id}", {"name": user.name, "avatar": PhotoBox.get_user_avatar(user.id), "banner": PhotoBox.get_user_banner(user.id)}
     )
 
 async def get_user(db: Surreal, user_id: str):
-    return await db.select(f"user:{user_id}")
+    user = await db.select(f"user:{user_id}")
+    if not bool(user):
+        return None
+    return user
 
 async def update_user(db: Surreal, user: guilded.User):
     return await db.merge(
-        f"user:{user.id}", {"name": user.name, "avatar": user.display_avatar.url}
+        f"user:{user.id}", {"name": user.name }
     )
 
 async def update_user_policy(user_id: str, command_name: str, policy: UserReplyPolicy):

@@ -17,7 +17,7 @@ services:
   grimoire-database:
     container_name: grimoire-database
     hostname: grimoire-database
-    image: surrealdb/surrealdb:v1.0.2
+    image: surrealdb/surrealdb:v1.4.2
     restart: unless-stopped
     volumes:
       - ./db/data:/db

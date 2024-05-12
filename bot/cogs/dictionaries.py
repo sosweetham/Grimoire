@@ -38,7 +38,7 @@ class Dictionaries(commands.Cog):
         embed.add_field(name="Thumbs Down", value=res.thumbs_down, inline=True)
         embed.add_field(name="Link", value=f"[{res.permalink}]({res.permalink})", inline=False)
         embed.add_field(name="Written On", value=parse(res.written_on).strftime('%m/%d/%Y'), inline=False)
-        await ctx.reply(embed=embed, private=True)
+        return embed
 
 
 def setup(bot: commands.Bot):

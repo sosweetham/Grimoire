@@ -530,13 +530,13 @@ futures = "*"
 
 [[package]]
 name = "guilded-py"
-version = "1.12.1"
+version = "1.13.2"
 description = "An API wrapper in Python for Guilded's bot API"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "guilded.py-1.12.1-py3-none-any.whl", hash = "sha256:93f3249a48d9da4bf69aa422d371c667c8e477052400b2ca534f39a52aa261b4"},
-    {file = "guilded.py-1.12.1.tar.gz", hash = "sha256:00603b4c2240fdf4c360c232fe736937817d589853ce3208d70ae8801bd6e11d"},
+    {file = "guilded.py-1.13.2-py3-none-any.whl", hash = "sha256:71fcedf67942b8aedf93fb8db0b40d77bd735952b0373d1bb33b73110d60c502"},
+    {file = "guilded.py-1.13.2.tar.gz", hash = "sha256:928beb30407dcae3e5a857ac044c7aebe24e3c1d012981477aed76e2a031f2fb"},
 ]
 
 [package.dependencies]
@@ -1532,4 +1532,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "8f118eff76da9bb0bfe6bfc5ee4028703273e6d58c7d44649e0cb080bcd459bf"
+content-hash = "dfa321de0aab8c6c386da718a129fcea25f22b87d8fc13bb76cda7a8b4a9ddb6"

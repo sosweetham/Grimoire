@@ -1,6 +1,8 @@
 from guilded import Embed, Color, Message
 from guilded.ext.commands import Bot
 
+from bot.utils.photobox import PhotoBox
+
 res_color_map={
   'success': Color.teal(),
   'warn': Color.gold(),
@@ -17,9 +19,10 @@ class GrimEmbeds:
 
   def _set_footer(self, embed: Embed, msg: Message) -> Embed:
     if self.client.user and msg.author:
-      embed.set_footer(icon_url=self.client.user.avatar, text=f'© {self.client.user.name}->{msg.server.name}|{msg.author.name}')
+      print(PhotoBox.get_bot_icon(self.client.user.id))
+      embed.set_footer(icon_url=PhotoBox.get_bot_icon(self.client.user.id), text=f'© {self.client.user.name}->{msg.server.name}|{msg.author.name}')
       embed.timestamp = msg.created_at
-      embed.set_author(name=msg.author.name, icon_url=msg.author.avatar)
+      embed.set_author(name=msg.author.name, icon_url=PhotoBox.get_user_avatar(msg.author.id))
     return embed
 
   def get_success_embed(self, msg: Message,  title:str="Success", dsc:str= "Success description") -> Embed:

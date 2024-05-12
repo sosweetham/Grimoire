@@ -78,8 +78,9 @@ def apply_reply_policies(func: Callable):
             private = True
         elif server_reply_policy == ServerReplyPolicy.public:
             private = False
-          
+        print(private, user_reply_policy, server_reply_policy)
         result: Embed = await func(*args, **kwargs)
+        print("res1", result)
         await context.reply(embed=result, private=private)
         return result
 

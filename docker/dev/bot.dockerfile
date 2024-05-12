@@ -13,5 +13,5 @@ COPY ../../bot/pyproject.toml ./
 COPY ../../bot/poetry.lock ./
 
 
-# CMD poetry install;poetry run python -m pymon bot
-CMD poetry install;poetry run dev
+CMD poetry install;poetry run python -m pymon bot
+# CMD poetry install;poetry run dev

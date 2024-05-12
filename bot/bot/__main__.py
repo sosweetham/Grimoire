@@ -1,4 +1,5 @@
 from glob import glob
+from typing import Any, Coroutine
 from bot.utils.embeds import GrimEmbeds
 from bot.utils.prepare import prepare
 from bot.utils.db import db as surreal
@@ -8,6 +9,7 @@ import asyncio
 import os
 
 from guilded.ext import commands
+from guilded import ClientFeatures
 
 # from dotenv import load_dotenv
 # load_dotenv()
@@ -35,7 +37,7 @@ cogspath = "cogs/"
 cogspathpy = [os.path.basename(f) for f in glob(f"{cogspath}*.py")]
 cogs = [f"{cogspath[:-1]}." + os.path.splitext(f)[0] for f in cogspathpy]
 
-bot = commands.Bot(command_prefix=prepare, help_command=helper)  # type: ignore
+bot = commands.Bot(command_prefix=prepare, help_command=helper, features=ClientFeatures(official_markdown=True,experimental_event_style=True))  # type: ignore
 embeds = GrimEmbeds(bot)
 
 @bot.event
